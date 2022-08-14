@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "colors": "^1.4.0",
+    "fix-esm": "^1.0.1",
+    "inquirer": "^8.0.0",
+    "readline-sync": "^1.4.10"
+  }
+}
