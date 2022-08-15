@@ -1,7 +1,9 @@
 require('colors');
 
-const { inquirerMenu } = require('./helpers/inquirer');
-const { pausa } = require('./helpers/mensajes');
+const { guardarDB, leerDB } = require('./helpers/guardarArchivo');
+const { inquirerMenu, pausa, leerInput } = require('./helpers/inquirer');
+const Tareas = require('./models/tareas');
+
 
 console.clear();
 
@@ -9,13 +11,59 @@ console.clear();
 const main = async () => {
 
     let opt = '';
+    const tareas = new Tareas();
+
+    const tareasDB = leerDB();
+
+    if(tareasDB){
+        tareas.cargarTareasFromArray(tareasDB)
+    }
+
 
     do {
         opt = await inquirerMenu();
-        if( opt !== '0' ) await pausa();
+
+        switch (opt) {
+            
+            case '1':
+                const desc = await leerInput('Description:');
+                tareas.crearTarea(desc)
+            break;
+
+            case '2':
+
+                tareas.listadoCompleto();
+
+            break;
+
+            case '3':
+
+                tareas.listarPendientesCompletadas(true);
+
+            break;
+
+            case '4':
+
+                tareas.listarPendientesCompletadas(false);
+
+            break;
+            
+
+
+        }
+
+        // const tarea = new Tarea('Comprar comida')
+
+        // tareas._listado[tarea.id] = tarea;
+        // console.log(tareas);
+
+        guardarDB( tareas.listadoArr)
+
+        await pausa();
+
     } while (opt !== '0' );
 
-    pausa();
+
 }
 
 main();
