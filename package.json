@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/Martinsr99/zeroToHeroNodeJS/issues"
   },
-  "homepage": "https://github.com/Martinsr99/zeroToHeroNodeJS#readme"
+  "homepage": "https://github.com/Martinsr99/zeroToHeroNodeJS#readme",
+  "dependencies": {
+    "inquirer": "^8.1.2",
+    "colors": "^1.4.0"
+  }
 }
