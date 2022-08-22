@@ -16,5 +16,8 @@
     "url": "https://github.com/Martinsr99/zeroToHeroNodeJS/issues"
   },
   "homepage": "https://github.com/Martinsr99/zeroToHeroNodeJS#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
 }
